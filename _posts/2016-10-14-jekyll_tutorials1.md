@@ -1,293 +1,85 @@
 ---
 layout: post
-title: Jekyll搭建个人博客
+title: 谁的青春不迷茫
 date: 2016-10-14 
-tags: 博客   
+tags:  电影   
 ---
+<div>
+	<img src="/images/24.jpg">
+	</div>
+　基本信息 
 
-　之前写了一篇[HEXO搭建个人博客](http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/)的教程获得了很好评，尤其是在[简书](http://www.jianshu.com/p/465830080ea9)上目前已经累积了10W+的阅读量了，也有好心的读者主动给我打赏，在此感谢。
 
-　如果你看过我的文章会发现我现在的博客样式跟之前是有很大的区别的，之前我也是使用 HEXO 搭建的博客，后来发现使用 HEXO 在多台电脑上发布博客，操作起来并不是那么方便，果断就转到了 Jekyll 上，接下来我会讲如何使用 Jekyll 搭建博客，[博客模板效果](http://baixin.io/#blog)。
+《谁的青春不迷茫》是由光线传媒出品的校园青春片，由姚婷婷执导，白敬亭、郭姝彤、李宏毅、王鹤润、丁冠森、赵文龙等主演 [1]  。
 
+该片改编自刘同同名小说，讲述了“好学生”林天娇和“学渣”高翔，从偏见到和解，再到互有好感，反映青春期学生成长烦恼的故事。该片于2016年4月22日在中国上映 [2]  。
 
-### 介绍
+中文名谁的青春不迷茫 外文名Yesterday Once More 出品时间2016年 出品公司光线传媒 发行公司光线传媒 制片地区中国大陆 拍摄地点厦门、漳平 拍摄日期2015年 导    演姚婷婷 编    剧田博、仲宁、刘同、姚婷婷 制片人刘同 类    型青春、校园 主    演白敬亭，郭姝彤，李宏毅，王鹤润，丁冠森 片    长108分钟 上映时间2016年4月22日 票    房¥1.79亿（中国内地） 对白语言汉语普通话 色    彩彩色 
+   
 
- 　Jekyll 是一个简单的博客形态的静态站点生产机器。它有一个模版目录，其中包含原始文本格式的文档，通过 Markdown （或者 Textile） 以及 Liquid 转化成一个完整的可发布的静态网站，你可以发布在任何你喜爱的服务器上。Jekyll 也可以运行在 GitHub Page 上，也就是说，你可以使用 GitHub 的服务来搭建你的项目页面、博客或者网站，而且是完全免费的
 
-　使用 Jekyll 搭建博客之前要确认下本机环境，Git 环境（用于部署到远端）、[Ruby](http://www.ruby-lang.org/en/downloads/) 环境（Jekyll 是基于 Ruby 开发的）、包管理器 [RubyGems](http://rubygems.org/pages/download)                
-　　如果你是 Mac 用户，你就需要安装 Xcode 和 Command-Line Tools了。下载方式 Preferences → Downloads → Components。
+剧情简介
 
-　　Jekyll 是一个免费的简单静态网页生成工具，可以配合第三方服务例如： Disqus（评论）、多说(评论) 以及分享 等等扩展功能，Jekyll 可以直接部署在 Github（国外） 或 Coding（国内） 上，可以绑定自己的域名。[Jekyll中文文档](http://jekyll.bootcss.com/)、[Jekyll英文文档](https://jekyllrb.com/)、[Jekyll主题列表](http://jekyllthemes.org/)。
+编辑
 
 
-### Jekyll 环境配置
 
-安装 jekyll
 
-```     
-$ gem install jekyll     
-```    
 
-创建博客
+人生一直处于辉煌巅峰的林天娇（郭姝彤饰），面对人生最重要的一次高考加分考试却重感冒了，情急之下她想通过作弊的方式顺利过关。没想到作弊也是需要技巧的，作弊失误的林天娇被高翔（白敬亭饰）看到，掉在地上的课本被老师误解这是高翔所为，高翔选择为林天娇挡了一刀。林天娇并不知道，她的人生的轨道从那一刻开始走向了另外一根轨道。毕竟高翔是她整个学习生涯中最反感的人。和自己讨厌的人扯上关系之后，林天娇用尽了各种方式想要摆脱高翔。倒不是谁吸引着谁，而是少年时大多数的气急败坏不是因为真的讨厌，而是因为害怕别人的眼光，害怕自己会变得不一样，害怕有人进入内心，害怕看不到前方而恐慌。在这个过程中，两个人互相拆台，林天娇发誓要拼个你死我活 [3]  。
 
-```    
-$ jekyll new myBlog    
-```   
 
-进入博客目录
+高翔  
 
-```
-$ cd myBlog  
-```
+演员 白敬亭  
 
-启动本地服务
 
-```
-$ jekyll serve
-```
+叛逆少年，不循规蹈矩。有着“飞翔”的梦想，和爷爷相依为命。身为“男学渣”的他不断挑衅“女学霸”林天娇的班长权威，多次交锋之下两人关系开始缓和。[5]  
 
-在浏览器里输入： [http://localhost:4000](http://localhost:4000)，就可以看到你的博客效果了。
+ 
 
-![](/images/posts/jekyll/image1.png)
+林天娇  
 
-so easy !
+演员 郭姝彤  
 
-### 目录结构
-　
-　Jekyll 的核心其实是一个文本转换引擎。它的概念其实就是： 你用你最喜欢的标记语言来写文章，可以是 Markdown，也可以是 Textile,或者就是简单的 HTML, 然后 Jekyll 就会帮你套入一个或一系列的布局中。在整个过程中你可以设置URL路径, 你的文本在布局中的显示样式等等。这些都可以通过纯文本编辑来实现，最终生成的静态页面就是你的成品了。
 
- 一个基本的 Jekyll 网站的目录结构一般是像这样的：
+班长，学霸级人物。爱好天文的她，却因母亲的期待以报考清华大学金融系为人生目标。没想到一次作弊却被高翔看到，她并不知道，她的人生的轨道从那一刻开始改变。 
 
-```
-.
-├── _config.yml
-├── _includes
-|   ├── footer.html
-|   └── header.html
-├── _layouts
-|   ├── default.html
-|   ├── post.html
-|   └── page.html
-├── _posts
-|   └── 2016-10-08-welcome-to-jekyll.markdown
-├── _sass
-|   ├── _base.scss
-|   ├── _layout.scss
-|   └── _syntax-highlighting.scss
-├── about.md
-├── css
-|   └── main.scss
-├── feed.xml
-└── index.html
+ 
 
-```
+ 黄韬  
 
-这些目录结构以及具体的作用可以参考 [官网文档](http://jekyll.com.cn/docs/structure/) 
+演员 李宏毅  
 
-进入 _config.yml 里面，修改成你想看到的信息，重新 jekyll server ，刷新浏览器就可以看到你刚刚修改的信息了。
 
-到此，博客初步搭建算是完成了，
+高冷学霸，校草级人物。黄韬则对林天娇暗生情愫，却因天娇与高翔越走越近，致使他和高翔产生矛盾。不同于叛逆学渣高翔，黄韬需要时时保持一副“好学生”的样子，每一次考试成绩、每一个动作都是榜样，压力越重自然就越压抑。[6]  
 
-### 博客部署到远端 
+ 
 
-　我这里讲的是部署到 Github Page 创建一个 github 账号，然后创建一个跟你账户名一样的仓库，如我的 github 账户名叫 [leopardpan](https://github.com/leopardpan)，我的 github 仓库名就叫 [leopardpan.github.io](https://github.com/leopardpan/leopardpan.github.io)，创建好了之后，把刚才建立的 myBlog 项目 push 到 username.github.io仓库里去（username指的是你的github用户名），检查你远端仓库已经跟你本地 myBlog 同步了，然后你在浏览器里输入 username.github.io ，就可以访问你的博客了。
+陆田甜  
 
+演员 王鹤润  
 
-### 编写文章
 
-　　所有的文章都是 _posts 目录下面，文章格式为 mardown 格式，文章文件名可以是 .mardown 或者 .md。
+陆田甜一个爱美、天真善良同时又很坚持自己原则的憧憬着爱情的可爱女孩，没有大梦想，只想当贤妻良母，和欧小洋是一对“小情侣”。[7]  
 
-　　编写一篇新文章很简单，你可以直接从 _posts/ 目录下复制一份出来 `2016-10-16-welcome-to-jekyll副本.markdown` ，修改名字为 2016-10-16-article1.markdown ，注意：文章名的格式前面必须为 2016-10-16- ，日期可以修改，但必须为 年-月-日- 格式，后面的 article1 是整个文章的连接 URL，如果文章名为中文，那么文章的连接URL就会变成这样的：http://baixin.io/2015/08/%E6%90%AD%E5/ ， 所以建议文章名最好是英文的或者阿拉伯数字。 双击 2016-10-16-article1.markdown 打开
+ 
 
-```
+欧小洋  
 
----
-layout: post
-title:  "Welcome to Jekyll!"
-date:   2016-10-16 11:29:08 +0800
-categories: jekyll update
----
+演员 丁冠森  
 
-正文...
 
-```
+像唐僧一样唠叨却呆萌暖心的欧小洋，喜欢陆田甜。是个普通人，不说大道理，做让她会笑的事情就是他最不普通的一点，可以为了谈恋爱不顾一切。[5]  
 
+ 
 
-title: 显示的文章名， 如：title: 我的第一篇文章                    
-date:  显示的文章发布日期，如：date: 2016-10-16                          
-categories: tag标签的分类，如：categories: 随笔            
+李涛  
 
-注意：文章头部格式必须为上面的，.... 就是文章的正文内容。
+演员 赵文龙  
 
-我写文章使用的是 Sublime Text2 编辑器，如果你对 markdown 语法不熟悉的话，可以看看[作业部落的教程](https://www.zybuluo.com/) 
 
-
-### 使用我的博客模板
-
-虽然博客部署完成了，你会发现博客太简单不是你想要的，如果你喜欢我的模板的话，可以使用我的模板。
-
-首先你要获取的我博客，[Github项目地址](https://github.com/leopardpan/leopardpan.github.io.git)，你可以直接[点击下载博客](https://github.com/leopardpan/leopardpan.github.io/archive/master.zip)，进去leopardpan.github.io/ 目录下， 使用命令部署本地服务 
-
-```
-$ jekyll server   
-```
-
-### 如果你本机没配置过任何jekyll的环境，可能会报错
-
-```
-/Users/xxxxxxxx/.rvm/rubies/ruby-2.2.2/lib/ruby/site_ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require': cannot load such file -- bundler (LoadError)
-	from /Users/xxxxxxxx/.rvm/rubies/ruby-2.2.2/lib/ruby/site_ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
-	from /Users/xxxxxxxx/.rvm/gems/ruby-2.2.2/gems/jekyll-3.3.0/lib/jekyll/plugin_manager.rb:34:in `require_from_bundler'
-	from /Users/xxxxxxxx/.rvm/gems/ruby-2.2.2/gems/jekyll-3.3.0/exe/jekyll:9:in `<top (required)>'
-	from /Users/xxxxxxxx/.rvm/gems/ruby-2.2.2/bin/jekyll:23:in `load'
-	from /Users/xxxxxxxx/.rvm/gems/ruby-2.2.2/bin/jekyll:23:in `<main>'
-	from /Users/xxxxxxxx/.rvm/gems/ruby-2.2.2/bin/ruby_executable_hooks:15:in `eval'
-	from /Users/xxxxxxxx/.rvm/gems/ruby-2.2.2/bin/ruby_executable_hooks:15:in `<main>'
-
-```
-
-原因： 没有安装 bundler ，执行安装 bundler 命令
-
-```
-
-$ gem install bundler
-
-```
-
-
-提示： 
-
-```
-Fetching: bundler-1.13.5.gem (100%)
-Successfully installed bundler-1.13.5
-Parsing documentation for bundler-1.13.5
-Installing ri documentation for bundler-1.13.5
-Done installing documentation for bundler after 5 seconds
-1 gem installed
-
-```
-
-再次执行 $ jekyll server  ，提示
-
-```
-
-Could not find proper version of jekyll (3.1.1) in any of the sources
-Run `bundle install` to install missing gems.
-
-```
-
-跟着提示运行命令
-
-```
-$ bundle install
-```
-
-这个时候你可能会发现 bundle install 运行卡主不动了。
-
-如果很长时间都没任何提示的话，你可以尝试修改 gem 的 source
-
-```
-$ gem sources --remove https://rubygems.org/
-$ gem sources -a http://ruby.taobao.org/
-$ gem sources -l
-*** CURRENT SOURCES ***
-
-http://ruby.taobao.org
-
-```
-
-再次执行命令 $ bundle install，发现开始有动静了
-
-```
-Fetching gem metadata from https://rubygems.org/...........
-Fetching version metadata from https://rubygems.org/..
-Fetching dependency metadata from https://rubygems.org/.
-。。。
-Installing jekyll-watch 1.3.1
-Installing jekyll 3.1.1
-Bundle complete! 3 Gemfile dependencies, 17 gems now installed.
-Use `bundle show [gemname]` to see where a bundled gem is installed.
-
-```
-
-bundler安装完成，后再次启动本地服务 
-
-```
-$ jekyll server
-
-```
-
-继续报错
-
-```
-Configuration file: /Users/tendcloud-Caroline/Desktop/leopardpan.github.io/_config.yml
-  Dependency Error: Yikes! It looks like you don't have jekyll-sitemap or one of its dependencies installed. In order to use Jekyll as currently configured, you'll need to install this gem. The full error message from Ruby is: 'cannot load such file -- jekyll-sitemap' If you run into trouble, you can find helpful resources at http://jekyllrb.com/help/! 
-jekyll 3.1.1 | Error:  jekyll-sitemap
-
-```
-表示 当前的 jekyll 版本是 3.1.1 ，无法使用 jekyll-sitemap 
-
-解决方法有两个
-
-> 1、打开当前目录下的 _config.yml 文件，把 gems: [jekyll-paginate,jekyll-sitemap] 换成 gems: [jekyll-paginate] ，也就是去掉jekyll-sitemap。
-
-> 2、升级 jekyll 版本，我当前的是 jekyll 3.1.2 。
-
-修改完成后保存配置，再次执行
-
-```
-$ jekyll server
-
-```
-提示
-
-```
-Configuration file: /Users/baixinpan/Desktop/OpenSource/Mine/Page-Blog/leopardpan.github.io-github/_config.yml
-            Source: /Users/baixinpan/Desktop/OpenSource/Mine/Page-Blog/leopardpan.github.io-github
-       Destination: /Users/baixinpan/Desktop/OpenSource/Mine/Page-Blog/leopardpan.github.io-github/_site
- Incremental build: disabled. Enable with --incremental
-      Generating... 
-                    done in 0.901 seconds.
- Auto-regeneration: enabled for '/Users/baixinpan/Desktop/OpenSource/Mine/Page-Blog/leopardpan.github.io-github'
-Configuration file: /Users/baixinpan/Desktop/OpenSource/Mine/Page-Blog/leopardpan.github.io-github/_config.yml
-    Server address: http://127.0.0.1:4000/
-  Server running... press ctrl-c to stop.
-
-```
-
-表示本地服务部署成功。
-
-在浏览器输入 [127.0.0.1:4000](127.0.0.1:4000) ， 就可以看到[baixin.io](http://baixin.io)博客效果了。
-
-### 修改成你自己的博客
-
->* 如果你想使用我的模板请把 _posts/ 目录下的文章都去掉。
->* 修改 _config.yml 文件里面的内容为你自己的。
-
-然后使用 git push 到你自己的仓库里面去，检查你远端仓库，在浏览器输入 username.github.io 就会发现，你有一个漂亮的主题模板了。      
-
-
-#### 【 如果想修改博客样式却不知道怎么修改，可以直接在评论里给我提问 】
-
-### 为什么要是用 Jekyll
-
-使用了 Jekyll 你会发现如果你想使用多台电脑发博客都很方便，只要把远端 github 仓库里的博客 clone 下来，写文章后再提交就可以了，Hexo 由于远端提交的是静态网页，所有无法直接写 Markdown 的文章。如果你想看 Hexo 搭建博客，可以看看我的另一篇[HEXO搭建个人博客](http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/)的教程。
-
-如果你在搭建博客遇到问题，可以在[原文博客](http://baixin.io/2016/10/jekyll_tutorials1/)的评论里给我提问。
-
-后面会继续介绍，在我的博客基础上，如何修改成你自己喜欢的 Style，欢迎继续关注我博客的更新。
-
-
-### Q&A 
-
-> 问题：最近很多朋友使用我的模板报警告：The CNAME `baixin.io` is already taken 
-> 解决：把CNAME里面的baixin.io修改成你自己的域名，如果你暂时没有域名，CNAME里面就什么都不用谢。（之前没人反馈过这个问题，应该是github page最近才最的限制。）
-
-
-
-
-
-
+爱起哄，喜欢讲哥们义气，黄韬的好朋友。秉承着“对待兄弟，一定得忠诚和富有勇气”的理念，可以对哥们两肋插刀。 
 
 
 
