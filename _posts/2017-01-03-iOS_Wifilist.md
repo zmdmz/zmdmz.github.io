@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "我们日常生活中的 iBeacon"
+title: "这个杀手不太冷"
 date: 2016-04-06 11:25:06 
-description: "iBeaco n技术调研与知识分享"
-tag: 技术
+description: "这个杀手不太冷"
+tag: 电影
 ---
 
 <div>
