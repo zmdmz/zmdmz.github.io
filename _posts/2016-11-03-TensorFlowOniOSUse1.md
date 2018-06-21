@@ -1,68 +1,89 @@
 ---
 layout: post
-title: TensorFlow 在 iOS 平台上的使用(一)
+title: 侏罗纪公园
 date: 2016-11-03 
-tags: 机器学习    
+tags:  电影    
 ---
+<div>
+  <img src="/images/14.jpg">
+  </div>
+　　基本信息 
 
-　　距离上次使用 TensorFlow 在iOS平台上做的小 Demo，已经过了四个月了，今天忽然想再看看,发现 Demo 已经不见了，我只能从头在编一次，这次发现编译 iOS 库，简单多了。
 
-　　tensorflow [下载地址](https://github.com/tensorflow/tensorflow/archive/master.zip)，tensorflow 最近提交的时间：2016-11-03，commit：`7b7c02de56e013482b5fe5ab05e576dc98fe5742` 。
+《侏罗纪公园》（Jurassic Park）是一部1993年的科幻冒险电影，改编自迈克尔·克莱顿于1990年发表的同名小说，由史蒂文·斯皮尔伯格执导，环球电影公司出品，山姆·尼尔、劳拉·邓恩、杰夫·高布伦主演，于1993年6月11日年美国上映。 [1]  
+
+影片主要讲述了哈蒙德博士召集大批科学家利用凝结在琥珀中的史前蚊子体内的恐龙血液提取出恐龙的遗传基因，将已绝迹6500万年的史前庞然大物复生，使整个努布拉岛成为恐龙的乐园，即“侏罗纪公园”。但在哈蒙德带孙子孙女首次游览时，恐龙发威了。 [2]  
+
+中文名《侏罗纪公园》 外文名《Jurassic Park》 出品时间1993年 出品公司环球影业 发行公司环球影业 制片地区美国 制片成本$63,000,000 拍摄地点夏威夷考艾岛 [3]  拍摄日期1992年8月24日-1992年11月30日 导    演史蒂文·斯皮尔伯格 编    剧迈克尔·克莱顿，大卫·凯普 制片人凯瑟琳·肯尼迪 类    型科幻，冒险 主    演山姆·尼尔，劳拉·邓恩，杰夫·高布伦，塞缪尔·杰克逊，理查德·阿滕伯勒 片    长127分钟 上映时间1993年6月11日（美国） 票    房$402,453,882（北美） [4]  分    级PG-13（USA） 对白语言英语/西班牙语/粤语 色    彩彩色 imdb编码tt0107290 主要奖项奥斯卡最佳视觉效果奖 全球票房1029153882美元 
+   
 
 
-　　下载完成后打开文件，找到目录 `tensorflow-master/tensorflow/contrib/ios_examples` 你会发现目录下有三个项目和一个 README.md 。
+剧情简介
 
-```
-benchmark 、 camera 、 simple 、README.md
+编辑
 
-```
+哈蒙德博士立志要建立一个非同寻常的公园：
 
-### 如果你发现项目无法运行，请看这里
-
-　　对于任何项目我们首先打开的应该是 README.md ，里面一般情况都会有介绍如何使用这个项目，tensorflow 也不会例外。README 开头就说了，这个目录里有如何在 iOS 平台上使用 tensorflow 的例子，但是需要注意几点：
-
-* 你的 Xcode 版本必须是 7.3 或更高版本，并且有安装 command-line 工具 。
-* 项目(Examples) 里必须包含一个静态库：`libtensorflow-core.a` 。
-* 下载 [Inception v1](https://storage.googleapis.com/download.tensorflow.org/models/inception5h.zip)，解压后将 label 和 graph 放在 simple 和 camera 的项目中。
-
-### camera 项目的使用
-
-　　camera 项目在 tensorflow-master/tensorflow/contrib/ios_examples 目录下，如果你是直接打开 camera 项目，编译你会发现报错缺少 imagenet_comp_graph_label_strings.txt 和 tensorflow_inception_graph.pb 两个文件，这两个文件上面已经说到了下载 [Inception v1](https://storage.googleapis.com/download.tensorflow.org/models/inception5h.zip) 解压得到。现在还差 静态库：`libtensorflow-core.a` ，这个需要我们自己编译。
-
-#### 编译静态库：libtensorflow-core.a
-
-进入目录：tensorflow-master/tensorflow/contrib/makefile，你可以看到一大堆 .sh 结尾的文件，找到 build_all_ios.sh ，Mac 上可以直接在 termina（终端）上运行命令编译
-
-```
-$ sh build_all_ios.sh
-```
-
-这个编译的过程是很漫长的，一般在一个小时左右。也有可能你在编译的过程中会遇到问题，这次我只遇到一个问题：
-
-```
-configure.ac:30: error: required file 'build-aux/ltmain.sh' not found
-configure.ac:24: installing 'build-aux/missing'
-Makefile.am: installing 'build-aux/depcomp'
-parallel-tests: installing 'build-aux/test-driver'
-autoreconf: automake failed with exit status: 1
-
-```
-
-解决方法是：先卸载 libtool 在重新安装，`brew uninstall libtool` && `brew install libtool`
-
-如果你还遇到了其它问题，可以看看我之前的一片文章 [iOS开发迎来机器学习的春天---TensorFlow](http://baixin.io/2016/07/iOSMachineLearning_TensorFlow/) ，或者是直接去 tensorflow 的 [Issues](https://github.com/tensorflow/tensorflow/issues) 里面找。 
-
-一个小时后。。。　如果编译没出问题，你可以在目录　`tensorflow-master/tensorflow/contrib/makefile／gen/lib` 下找到一个静态库：`libtensorflow-core.a` ，把这个静态库拷贝到 camera 项目中，然后编译运行。
-
-<br>
-转载请注明：[潘柏信的博客](http://baixin) » [点击阅读原文]()     
+剧照
+剧照(28张) 
 
 
 
+ 恐龙将是这个公园的主角。他把众多科学家收归旗下，利用琥珀里面困住的远古蚊子体内的血液，提取出恐龙的基因信息，利用这些信息培育繁殖恐龙。结果如愿以偿，他把努布拉岛建立成了一个恐龙公园，坚信可以从中赚取大钱。然而，科学家们则忧心忡忡。
+　　不幸的事情果然发生了。虽然公园有电脑系统管理，但却因为被员工破坏而造成了无法挽救的失控：所有的恐龙逃出了控制区，人们纷纷逃窜却逃不过恐龙的魔爪。恐龙自相残杀，人们亦死难无数，最后幸存者寥寥，只得四人逃出生天。努布拉岛上空弥漫着恐怖的气息。 [2]  
 
 
+格兰特博士  
+
+演员 山姆·尼尔  
 
 
+资深考古学家，致力于古生物学，不怎么喜欢小孩子，在蒙大拿有一个化石发掘场，对恐龙有着狂热的好奇心。 
+
+ 
+
+ 塞特勒博士  
+
+演员 劳拉·邓恩  
+
+
+植物学家，对大自然有着无与伦比的热爱。对古植物了如指掌，是葛兰特博士的老搭档，在公园遭遇灾难的时候，勇敢的挺身而出。 
+
+ 
+
+ 马尔科姆博士  
+
+演员 杰夫·高布伦  
+
+
+数学家（伊恩是一个数学家，专攻数学中称之为“混沌理论的一个分支”），对于宇宙万物都有自己的一番见解。幽默、性格开朗。 
+
+ 
+
+ 约翰·哈蒙德  
+
+演员 理查德·阿滕伯勒  
+
+
+侏罗纪公园的创始者，曾资助过格兰特博士的化石发掘，立志建立一个非比寻常的公园，从蚊子血中提取出恐龙基因，克隆恐龙。 
+
+ 
+
+ 丽克斯  
+
+演员 阿丽亚娜·理查兹  
+
+
+哈蒙德的孙女，带着弟弟蒂姆来努布拉岛度假游览，性格比较文静，她是个电脑软件方面的天才，正是她修复的公园的安保和通讯系统。 
+
+ 
+
+ 蒂姆  
+
+演员 约瑟夫·梅泽罗  
+
+
+哈蒙德的孙子，喜爱探险，比较爱看格兰特博士所著的书籍
 
 
 
