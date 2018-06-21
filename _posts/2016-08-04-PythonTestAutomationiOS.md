@@ -1,135 +1,82 @@
 ---
 layout: post
-title: "Python自动化测试iOS项目"
+title: 战狼Ⅱ
 date: 2016-08-04 
-tags: python  
+tags:  电影  
 ---
-
-作为一个开发人员，为了保证自己的代码的健壮，写单元测试是必不可少的环节，然而最痛快的是每天去手动跑一遍所有的case。那么什么能帮我们解决这些繁琐的操作呢，大家应该会想到自动化测试脚本了，是的，我们可以借助脚本来完成全自动化测试，下面是我列的每天脚本自动执行流程：       
-
- >* 1、`pull` git仓库里面的最新代码到本地。    
- >* 2、然后打包成`App`。   
- >* 3、安装到模拟器上。    
- >* 4、运行App，执行单元测试，生成测试数据并保存到本地。    
- >* 5、脚本读取测试数据，邮件发送给相关人员。    
+<div>
+	<img src="/images/25.jpg">
+	</div>
+基本信息 
 
 
-当这些全自动化后，可以大大减少开发人员的维护成本，即使每次项目里面有新增模块后，增加测试case就行了，下面会介绍自动测试这5步具体怎么去执行，整个脚本是使用Python写的，代码很少功能也很简单，但这已经可以帮我们完成基本的自动化测试了，这就是脚本的强大之处，选择Pyhton纯属个人喜好，最近也在学习Python，当然了最终使用什么语言看你自己。   
+《战狼Ⅱ》是吴京执导的动作军事电影，由吴京、弗兰克·格里罗、吴刚、张翰、卢靖姗、淳于珊珊、丁海峰等主演。该片于2017年7月27日在中国内地上映 [1]   [2]  。
 
-### python执行shell命令完成测试       
+该片讲述了脱下军装的冷锋被卷入了一场非洲国家的叛乱，本来能够安全撤离的他无法忘记军人的职责，重回战场展开救援的故事 [3]  。
 
-首先确认本机上安装了`git` 和 `python` 。    
-脚本判断本地是否存在项目，不存在则使用命令 `git clone ...` ，存在则使用命令 `git pull ...` 。       
-这些在Linux的命令都可以使用脚本来完成的，python的 `os.popen()` 方法 就是可以在Linux上执行shell命令。     
-**例如：**  把下面这段代码添加到一个 test.py 的文件里，然后在终端上执行 `python test.py` 命令你就会看到，你的当前目录下正在下载我的博客了。
+2017年12月，该片获得2017中国-东盟电影节最佳影片奖 [4]  ，在第二届澳门国际影展上获得亚洲人气电影大奖 。
 
-```     
-import os
-
-os.popen('git clone https://github.com/leopardpan/leopardpan.github.io.git')   
-
-```       
-git pull 。。。 更新代码也是一样的。
-
-接下来的打包、安装、运行都是使用python执行shell命令      
-
-**把iOS项目打包成App，下面的 `Demo` 是项目的名字**              
-
->* os.popen('xcodebuild -project Demo.xcodeproj -target Demo -configuration Debug -sdk iphonesimulator')	 
-
-这行脚本运行完成后，你就会发现同会生成一个 `build` 的文件夹。  
-Debug参数表示现在是Debug模式，如果Xcode里面改成Release了，这里需要改成Release。  
-xcodebuild 命令是 Xcode Command Line Tools 的一部分。通过调用这个命令，可以完成 iOS 工程的编译，打包和签名过程。可以使用 xcodebuild --help 来看看具体有哪些功能。 
-
-**打开iOS模拟器，这里运行的是`iPhone 6 Plus` 你也可以换成其它型号的模拟器**      
-
->*  os.popen('xcrun instruments -w "iPhone 6 Plus"')	
-
-**把刚才打包生成的App安装到模拟器上**      
-在安装之前要先卸载App,不然你运行的永远是最初安装的那个，后来安装的不会覆盖之前的，卸载App
-
->* os.popen('xcrun simctl uninstall booted com.test.Demo')
-
-booted 后面接的是 `Bundle Identifier`，我的是 com.test.Demo，然后再安装App     
-
->* os.popen('xcrun simctl install booted build/Debug-iphonesimulator/Demo.app ')	
-
-booted 后面接的是.app的路径，我打包的时候的是Debug，所以这个的文件夹名称是Debug-iphonesimulator。
-
-**在模拟器里运行App**      
-
->* os.popen('xcrun simctl launch booted com.test.Demo')
-
-booted 后面接的是 `Bundle Identifier`，我的是 com.test.Demo。
-
-到目前为止，你就会发现你的项目已经运行起来了，你可以在项目是Debug模式下一启动就执行单元测试，然后把对应的测试数据保存到本地为data.json。然后在使用python脚本读取测试文件的数据，最终使用邮件发送给相关人员，pyhton读取数据很简单，一行代码就行
-
->* data = open('data.json').read() 
-
-data里面就是json字符串，为了脚本操作简单，我在存储的时候直接把json格式的转成了字符串类型。
-
-### python发送邮件     
-
-我使用的是SMTP进行邮件发送的，SMTP是发送邮件的协议，Python内置对SMTP的支持，可以发送纯文本邮件、HTML邮件以及带附件的邮件。     
-
-Python对SMTP支持有smtplib和email两个模块，email负责构造邮件，smtplib负责发送邮件，具体代码如下： 
+中文名战狼Ⅱ 外文名Wolf Warriors Ⅱ 其它译名战狼2 出品时间2017年7月27日 出品公司北京登峰国际文化传播有限公司 发行公司北京聚合影联文化传媒有限公司、五洲电影发行有限公司等 [5]  制片地区中国大陆 制片成本2.0亿人民币 拍摄地点辽宁大连、河北张家口、肯尼亚、南非 [6]  拍摄日期2016年6月份 导    演吴京 编    剧吴京、刘毅、董群(纷舞妖姬) [7]  制片人吕建民 类    型动作、军事、战争 主    演吴京，弗兰克·格里罗，吴刚，张翰，卢靖姗，淳于珊珊，丁海峰 片    长123分钟 上映时间2017年7月27日 票    房56.81亿人民币（中国内地总票房） 对白语言汉语普通话 色    彩彩色 imdb编码tt7131870 主要奖项中国电影周金鹤奖最佳影片 
+精神文明建设“五个一工程”优秀作品奖 
+中美电影节最佳电影 在线播放平台爱奇艺、优酷网、腾讯视频 TV端播放平台银河奇异果 [8]  全球票房8.70亿美元 [9]  
+   
 
 
-	from email import encoders
-	from email.header import Header
-	from email.mime.text import MIMEText
-	from email.utils import parseaddr, formataddr
-	import smtplib
+剧情简介
 
-	def format_addr(self,s):
-	    name, addr = parseaddr(s)
-	    return formataddr(( \
-	        Header(name, 'utf-8').encode(), \
-	        addr.encode('utf-8') if isinstance(addr, unicode) else addr))
+编辑
 
-	def send_mail(self, mail, message, title):
-		from_addr = 'leopardpan@163.com'
-		password = ''
-		to_addr = mail
-		smtp_server = 'smtp.163.com'
-
-		msg = MIMEText(message, 'plain', 'utf-8')
-		msg['From'] = self.format_addr(u'自动化测试邮件 <%s>' % from_addr)
-		msg['To'] = self.format_addr(u'管理员 <%s>' % to_addr)
-		msg['Subject'] = Header(title, 'utf-8').encode()
-
-		server = smtplib.SMTP(smtp_server, 25)
-		server.set_debuglevel(1)
-		server.login(from_addr, password)
-		server.sendmail(from_addr, [to_addr], msg.as_string())
-		server.quit()
-
-	send_mail('leopardpan@icloud.com','正文','标题')
+被开除军籍的冷锋（吴京饰演）本是因找杀害龙小云的凶手（余男饰演）来到非洲，但是却突然被卷入一场非洲国家的叛乱。因为国家之间政治立场的关系，中国军队无法在非洲实行武装行动撤离华侨。而作为退伍老兵的冷锋无法忘记曾经为军人的使命，本来可以安全撤离的他毅然决然地回到了沦陷区，孤身一人带领身陷屠杀中的同胞和难民，展开生死逃亡。随着斗争的持续，体内的狼性逐渐复苏，最终闯入战乱区域，为同胞而战斗 [10]  。
 
 
-from_addr是发送方的邮箱地址，password是开通SMTP时输入的密码     
-smtp_server是smtp的服务，如果你的from_addr是gamil.com，那么就要写成smtp_server = 'smtp.gmail.com' 了。
+冷锋  
 
-方法 send_mail(self, mail, message, title): 有四个参数，第一个不用传，第二个参数是收信人的邮箱，第三个是邮件的正文，第四个是邮件的标题，方法调用格式： `send_mail('leopardpan@icloud.com','正文','标题')`
-
-注意：发送方的邮箱必须要开通SMTP功能才行，否则会报错
-
->* SMTPSenderRefused: (550, 'User has no permission', 'leopardpan@163.com')
-
-163的SMTP开通，需要你登录网易邮箱，然后点击顶部的设置就会出现`POP3/SMTP/IMAP`，点击之后，勾选选择开启，这个时候需要你输入密码，记住这个密码就是上面代码中的`password`，如果你都完成的话，你把上面的代码拷贝出现，把邮箱修改成你自己的，使用 pyhton 运行一下吧。
+演员 吴京  
 
 
-上面的几个流程结合起来就可以实现一个简单的自动化测试了，如果你有什么建议和意见欢迎讨论。
-
-
-参考链接：
-[SMTP发送邮件](http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386832745198026a685614e7462fb57dbf733cc9f3ad000)     
-
-<br>
-
-转载请注明：[潘柏信的博客](http://baixin) » [点击阅读原文](http://baixin.io/2016/08/PythonTestAutomationiOS/) 
+原为战狼中队的特种兵，因故被开除军籍。因为龙小云的意外失踪，前往非洲追查线索。遭遇当地发生武装叛乱，中国大使馆组织撤侨。本可以安全撤离的冷锋，因无法忘记曾经为军人的使命。为了完成营救华资工厂的中国人和援非医疗专家陈博士的任务，他孤身犯险冲回沦陷区。带领身陷屠杀中的同胞和难民，展开生死逃亡。 
 
  
 
+ 老爹  
+
+演员 弗兰克·格里罗  
 
 
+智商、指挥能力和作战技能一流的雇佣兵组织头目，手下有一批装备精良的部下。被叛乱军首领高价雇佣而来，然而在追捕陈博士的过程中，遇到了冷锋的一再阻挠。他经过分析和判断认定，杀死冷锋并且抢走冷锋护送的小女孩，就可以凭借疫苗成功地统治这个国家。 
+
+ 
+
+何建国  
+
+演员 吴刚  
+
+
+一名退伍的老侦察连长，在非洲的华资工厂担任保安主管。叛乱发生后，指挥全体员工守厂自保。冷锋来到工厂后，与冷锋并肩战斗，一起阻击叛军和雇佣兵对工厂的袭击。 
+
+ 
+
+卓亦凡  
+
+演员 张翰  
+
+
+一个在非洲开厂的富二代军迷，喜欢军事却只会纸上谈兵的“熊孩子”。但是为人真诚，当叛乱部队攻击他的工厂时，勇敢地拿起武器和两位老兵并肩作战，在战火中完成了从男孩到男人的成长。 
+
+ 
+
+RACHEL  
+
+演员 卢靖姗  
+
+
+一名美国援非医生，冷静沉着，医术高超。在雇佣兵搜捕传染病专家陈博士时，试图李代桃僵掩护直正的陈博士。陈博士不幸牺牲后受陈博士的嘱托，和冷锋一起护送与治疗疫情有极大关系的Pasha撤离。 
+
+ 
+
+ 钱必达  
+
+演员 于谦  
+
+
+一个金钱至上、专坑同胞的奸商。在叛乱中被冷锋搭救才到达中国大使馆保住性命，为了表示感激，向冷锋说出了他一直追寻的神秘子弹的线索。
