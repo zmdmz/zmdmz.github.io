@@ -1,11 +1,10 @@
 ---
 layout: post
-title:这个杀手不太冷
-date: 2015-09-26 18:15:06 
-description: "电影"
-tag: 电影
+title: "我们日常生活中的 iBeacon"
+date: 2016-04-06 11:25:06 
+description: "iBeaco n技术调研与知识分享"
+tag: 技术
 ---
-
 
 <div>
 <img src="/images/7.jpg">
